@@ -36,10 +36,10 @@ response = requests.get(server+endpoint, headers=header, params=payload)
 #print(response.text)
 output = response.json()
 print(f'{output["total"]} variables returned')
-if output["total"]>100: # check if there are more columns than the default page size
-    payload["size"] = output["total"] # resize the page to include all variables
-    response = requests.get(server+endpoint, headers=header, params=payload)
-    output = response.json()
+# if output["total"]>100: # check if there are more columns than the default page size
+#     payload["size"] = output["total"] # resize the page to include all variables
+#     response = requests.get(server+endpoint, headers=header, params=payload)
+#     output = response.json()
 colnames = [] # a list to hold column names (for later)
 for column in output["data"]:
     name = column["name"]
